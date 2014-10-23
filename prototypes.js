@@ -4,7 +4,7 @@ var gold = {a:1};
 console.log(gold.a); // 1
 console.log(gold.z); // undefined
 
-function extend(destination, source) {
+function extend(destination, source) {  // built an extend fcn
 	var copy = destination;
 	for (var key in source) {
 		destination[key] = source[key];
