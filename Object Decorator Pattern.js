@@ -44,6 +44,7 @@ var move = function () { // no longer takes the car parameter as an argument for
 // Refactor the code to take the move function into the carlike decorator function
 var carlike = function(obj, loc) {
 	obj.loc = loc;
+	// obj.move = move;
 	obj.move = function() { // replace var "move" with the actual move function
 		this.loc++; // a new function instance is generated everytime you run carlike - expensive!
 	};
@@ -63,6 +64,16 @@ var makeAnObject1 = function () {
 };
 var ob1 = makeAnObject1();
 var ob2 = makeAnObject1();
-console.log(ob1 === ob2); // false -> even though the same line of code generates ob1 and ob2, they are 2 different objects
+console.log(ob1 === ob2); // false -> this generates 2 different function objects everytime this code is run
+
+// Refactoring the .move() method so that it does not refer to parameter this
+var carlike = function(obj, loc) {
+	obj.loc = loc;
+	obj.move = function () {
+		//this.loc++; gets bound to a new value everytime move is invoked 
+		obj.loc++; // everytime we call carlike, a new closure scope is created, so you know obj always refers to exactly one car object 
+	};
+	return obj;
+};
 
 
