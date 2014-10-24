@@ -15,14 +15,20 @@ var move = function (car) {
 
 // this would make our run.js file look like:
 var amy = {loc:1};
+// amy.loc++;
 move(amy); // instead of amy.loc++, we are applying the function move to the object amy 
+
 var ben = {loc:9};
+// ben.loc++;
 move(ben);
 
 
-// now let's build a function to create car objects (lines 3, 7 in the original code)
+// now let's build a function to create car objects 
+// convention is to use adjective name for functions that augment an object (decorator functions)
+
+// var amy = {loc:1};
+// var ben = {loc:9};
 var carlike = function (obj, loc) { // accepts object and property as params 
-// convention is to use adjective name for functions that augment an object (decorators)
 	obj.loc = loc; // augments obj with the passed-in property 
 	return obj; // returns the augmented object
 };
@@ -37,7 +43,8 @@ var carlike = function (obj, loc) {
 };
 
 var move = function () { // no longer takes the car parameter as an argument for .move
-	// the target obj will now be amy or ben (object at the left of the dot at call time)
+	// the target obj will now be amy or ben (object to the left of the dot at call time)
+	// car.loc++;
 	this.loc++; // replace "car" with the parameter "this" bc the object will be bound to .loc++ at call time 
 };
 
@@ -70,7 +77,7 @@ console.log(ob1 === ob2); // false -> this generates 2 different function object
 var carlike = function(obj, loc) {
 	obj.loc = loc;
 	obj.move = function () {
-		//this.loc++; gets bound to a new value everytime move is invoked 
+		// this.loc++ // gets bound to a new value everytime move is invoked 
 		obj.loc++; // everytime we call carlike, a new closure scope is created, so you know obj always refers to exactly one car object 
 	};
 	return obj;
