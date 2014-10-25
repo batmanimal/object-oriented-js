@@ -84,6 +84,7 @@ function extend(destination, source) {  // built an extend fcn
 	return copy;
 }
 
+// FUNCTIONAL CLASS PATTERN WITH SHARED METHODS
 
 var Car = function(loc) {
 	var obj = {loc: loc};
