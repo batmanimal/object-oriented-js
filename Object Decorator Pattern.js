@@ -58,7 +58,7 @@ var carlike = function(obj, loc) {
 	return obj;
 };
 
-// Why is a new function generated each time carlike is run? Example below. 
+// How do you know a new function is generated each time carlike is run? Example below. 
 var makeAnObject = function () {
 	return {example: 'property'};
 };
