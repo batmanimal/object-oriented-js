@@ -10,7 +10,7 @@ var Car = function (loc) {
 
 // Create a second category of object for cal (a Cop object), with same powers as category
 var cal = Car(2);
-// cal.call() // property does not exist in Car, special to Cop. Let's add it!
+// cal.call() // error -> property does not exist in Car, special to Cop. 
 
 // Create superclass that produces an object that starts where the superclass leaves off
 var SuperCar = function () {

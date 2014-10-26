@@ -23,7 +23,7 @@ ben.move();
 
 var Car = function (loc) {
 //	var obj = Object.create(Car.prototype); -> machine writes -> this = Object.create(Car.prototype);
-	obj.loc = loc; 
+	this.loc = loc; 
 //	return obj; -> machine writes -> return this;
 };
 Car.prototype.move = function () {
