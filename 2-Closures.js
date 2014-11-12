@@ -1,3 +1,6 @@
+// HOW TO USE THESE NOTES: 
+// Use these notes to follow along with the lesson. You can run the code in this file to reproduce what you see in the videos. 
+
 var sagas = []; // global array to store saga function objects, accessible outside of the newSaga function 
 var hero = aHero();
 var newSaga = function(){
